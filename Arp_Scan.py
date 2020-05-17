@@ -1,10 +1,8 @@
 # coding:utf-8
 """
-
-一个简单的ARP发现程序
-需要安装scapy模块
-by_0verflow 2020.5.4
-
+简单的TCP端口扫描程序
+by_0verflow qq1635590569 2020_05_17
+如有bug或者改进的地方，望不吝赐教
 """
 # import sys
 from scapy.all import *
