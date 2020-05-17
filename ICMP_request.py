@@ -26,14 +26,19 @@ def echo_requset(dst,ttl):
         print("不通")
 
 def pinger(dst):
-    for i in range(1,n+1):
+    for i in range(1,5):   # ping5次
         ping_result = echo_requset(dst,i)
         if ping_result:
-            print("来自:{} 的回复: 字节={} 时间={}ms TTL={}".format(ping_result[0],ping_result[3],ping_result[1],ping_result[2]))
+            print("来自:{} 的回复: 字节={} 延迟={}ms TTL={}".format(ping_result[0],ping_result[3],ping_result[1],ping_result[2]))
         time.sleep(1)
 if __name__ == '__main__':
-    dest = sys.argv[1]   # 要ping的ip
-    n = int(sys.argv[2])  # ping 多少次
-    pinger(dest)
+    try:
+        dest = sys.argv[1]  # 要ping的ip
+        pinger(dest)
+    except:
+        print("""
+        [使用示例]
+        python ICMP_request.py [IP地址]    
+        """)
 
 
