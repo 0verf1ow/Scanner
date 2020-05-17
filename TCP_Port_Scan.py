@@ -12,10 +12,10 @@ import time
 
 def port_scan(dst_ip,port,*args):
     if len(args) == 1:
-        result_raw = sr(IP(dst=dst_ip)/TCP(dport=(port,args[0])),timeout=2,verbose=0)
+        result_raw = sr(IP(dst=dst_ip)/TCP(dport=(port,args[0])),timeout=2,verbose=0)   # 范围扫描
         print_res(result_raw[0])
     else:
-        result_raw = sr(IP(dst=dst_ip)/TCP(dport=port),timeout=2, verbose=0)
+        result_raw = sr(IP(dst=dst_ip)/TCP(dport=port),timeout=2, verbose=0)     # 指定扫描
         print_res(result_raw[0])
 
 def print_res(res):
@@ -25,7 +25,8 @@ def print_res(res):
             print("[+] PORT:{}  ======>  Status: OPEN".format(i[1][1].sport))
     end_time = time.time()
     scan_time = (end_time - start_time)
-    print("\n扫描结束,所用时间 {:.2f}s".format(scan_time))
+    print("\n扫描结束,所用时间 {:.2f}s".format(scan_time))    # 取两位小数点
+
 if __name__ == "__main__":
     start_time = time.time()
     if len(sys.argv) == 3:
