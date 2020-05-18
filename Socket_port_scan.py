@@ -17,6 +17,12 @@ def scanner(dst_ip, d_port):
         print("[+]{}:{}  =======>  Status: CLOSE".format(dst_ip, dst_ip))
 
 if __name__ == "__main__":
-    dst_ip = sys.argv[1]
-    dst_port = int(sys.argv[2])
-    scanner(dst_ip, dst_port)
+    try:
+        dst_ip = sys.argv[1]
+        dst_port = int(sys.argv[2])
+        scanner(dst_ip, dst_port)
+    except:
+        print("""
+        [使用示例]
+        python Socket_port_scan.py [IP地址] [端口]      
+        """)
