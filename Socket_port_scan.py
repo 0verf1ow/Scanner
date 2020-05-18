@@ -19,6 +19,7 @@ def scanner(dst_ip, d_port):
 if __name__ == "__main__":
     try:
         dst_ip = sys.argv[1]
+        dst_ip = gethostbyname(dst_ip)
         dst_port = int(sys.argv[2])
         scanner(dst_ip, dst_port)
     except:
