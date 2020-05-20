@@ -14,7 +14,7 @@ def scanner(dst_ip, d_port):
         print("[+]{}:{}  =======>  Status: OPEN".format(dst_ip, d_port))
         conn.close()
     except:
-        print("[+]{}:{}  =======>  Status: CLOSE".format(dst_ip, dst_ip))
+        pass
 
 if __name__ == "__main__":
     try:
